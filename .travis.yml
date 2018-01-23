@@ -30,8 +30,8 @@ before_script:
   - memcached -p 11212 -d
   - memcached -p 11213 -d
   - sudo redis-server /etc/redis/redis.conf --port 6380 --requirepass 'my-secret'
-  - ps aux | grep 'memcached' | awk '{print $2}'
-  - ps aux | grep 'redis-server' | awk '{print $2}'
+  - ps aux | grep 'memcached'
+  - ps aux | grep 'redis-server'
 script:
   - source test/env/memcached.sh
   - ./node_modules/mocha/bin/mocha test
