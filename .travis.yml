@@ -33,9 +33,9 @@ before_script:
   - ps aux | grep 'memcached' | awk '{print $2}'
   - ps aux | grep 'redis-server' | awk '{print $2}'
 script:
-  - bash test/env/memcached.sh
+  - source test/env/memcached.sh
   - node test/test.js
-  - bash test/env/redis.sh
+  - source test/env/redis.sh
   - node test/test.js
 
 after_script:
