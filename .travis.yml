@@ -34,10 +34,10 @@ before_script:
   - ps aux | grep 'redis-server' | awk '{print $2}'
 script:
   - source test/env/memcached.sh
-  - node test/cache_service.js
+  - ./node_modules/mocha/bin/mocha test
   - source test/env/redis.sh
-  - node test/cache_service.js
+  - ./node_modules/mocha/bin/mocha test
   - source test/env/in_memory.sh
-  - node test/cache_service.js
+  - ./node_modules/mocha/bin/mocha test
 
 after_script:
