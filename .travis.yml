@@ -13,18 +13,18 @@ notifications:
     on_success: always
     on_failure: always
 node_js:
+  - "9"
   - "8"
   - "7"
 # Create a Travis memcached enabled environment
 services:
-  - memcached
-  - redis-server
 before_install:
   - sudo apt-get update
   - sudo apt-get install nodejs
   - sudo apt-get install npm
 install:
   - npm install
+  - npm install -g mocha
 # Start memcached instances on localhost
 before_script:
   - memcached -p 11212 -d
@@ -33,11 +33,11 @@ before_script:
   - ps aux | grep 'memcached'
   - ps aux | grep 'redis-server'
 script:
-  - source test/env/memcached.sh
-  - ./node_modules/mocha/bin/mocha test
-  - source test/env/redis.sh
-  - ./node_modules/mocha/bin/mocha test
   - source test/env/in_memory.sh
-  - ./node_modules/mocha/bin/mocha test
+  - mocha test
+  - source test/env/memcached.sh
+  - mocha test
+  - source test/env/redis.sh
+  - mocha test
 
 after_script:
