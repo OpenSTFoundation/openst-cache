@@ -2,8 +2,6 @@
 const chai = require('chai')
   , assert = chai.assert;
 
-var sleep = require('sleep');
-
 // Load cache service
 const rootPrefix = ".."
   , openSTCache = require(rootPrefix + '/services/cache')
