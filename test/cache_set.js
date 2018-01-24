@@ -62,7 +62,7 @@ describe('Cache Set', function() {
         , cValue = {a: 1}
         , response = await openSTCache.set(cKey, cValue);
       assert.equal(response.isSuccess(), true);
-      assert.equal(response.data.value, true);
+      assert.equal(response.data.response, true);
     });
   } else {
     it('should fail when value is Object', async function() {
@@ -91,7 +91,7 @@ describe('Cache Set', function() {
       , cValue = "String Value"
       , response = await openSTCache.set(cKey, cValue);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
   it('should pass when value is integer', async function() {
@@ -99,7 +99,7 @@ describe('Cache Set', function() {
       , cValue = 10
       , response = await openSTCache.set(cKey, cValue);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
   it('should pass when value is blank', async function() {
@@ -107,7 +107,7 @@ describe('Cache Set', function() {
       , cValue = ""
       , response = await openSTCache.set(cKey, cValue);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
 });

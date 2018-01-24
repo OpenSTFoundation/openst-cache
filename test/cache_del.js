@@ -54,7 +54,7 @@ describe('Cache Del', function() {
     var cKey = "cache-key-not-key-del"
       , response = await openSTCache.del(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
   it('should pass when key is set', async function() {
@@ -63,7 +63,7 @@ describe('Cache Del', function() {
       , responseSet = await openSTCache.set(cKey, cValue)
       , response = await openSTCache.del(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
 });

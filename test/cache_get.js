@@ -54,7 +54,7 @@ describe('Cache Get', function() {
     var cKey = "cache-key-not-set"
       , response = await openSTCache.get(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, null);
+    assert.equal(response.data.response, null);
   });
 
   it('should pass when value is string', async function() {
@@ -63,7 +63,7 @@ describe('Cache Get', function() {
       , responseSet = await openSTCache.set(cKey, cValue)
       , response = await openSTCache.get(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, cValue);
+    assert.equal(response.data.response, cValue);
   });
 
   it('should pass when value is integer', async function() {
@@ -72,7 +72,7 @@ describe('Cache Get', function() {
       , responseSet = await openSTCache.set(cKey, cValue)
       , response = await openSTCache.get(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, cValue);
+    assert.equal(response.data.response, cValue);
   });
 
   it('should pass when value is blank', async function() {
@@ -81,7 +81,7 @@ describe('Cache Get', function() {
       , responseSet = await openSTCache.set(cKey, cValue)
       , response = await openSTCache.get(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, cValue);
+    assert.equal(response.data.response, cValue);
   });
 
   if (cacheConfig.CACHING_ENGINE != 'redis') {
@@ -91,8 +91,8 @@ describe('Cache Get', function() {
         , responseSet = await openSTCache.set(cKey, cValue)
         , response = await openSTCache.get(cKey);
       assert.equal(response.isSuccess(), true);
-      assert.equal(typeof response.data.value, typeof cValue);
-      assert.equal(JSON.stringify(response.data.value), JSON.stringify(cValue));
+      assert.equal(typeof response.data.response, typeof cValue);
+      assert.equal(JSON.stringify(response.data.response), JSON.stringify(cValue));
     });
 
     it('should pass when value is Array', async function() {
@@ -101,8 +101,8 @@ describe('Cache Get', function() {
         , responseSet = await openSTCache.set(cKey, cValue)
         , response = await openSTCache.get(cKey);
       assert.equal(response.isSuccess(), true);
-      assert.equal(typeof response.data.value, typeof cValue);
-      assert.equal(JSON.stringify(response.data.value), JSON.stringify(cValue));
+      assert.equal(typeof response.data.response, typeof cValue);
+      assert.equal(JSON.stringify(response.data.response), JSON.stringify(cValue));
     });
   } else {
     it('should fail when value is Object', async function() {

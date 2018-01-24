@@ -54,7 +54,7 @@ describe('Cache GetObject', function() {
     var cKey = "cache-key-not-set"
       , response = await openSTCache.getObject(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, null);
+    assert.equal(response.data.response, null);
   });
 
   it('should pass when value is object', async function() {
@@ -63,8 +63,8 @@ describe('Cache GetObject', function() {
       , responseSet = await openSTCache.setObject(cKey, cValue)
       , response = await openSTCache.getObject(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(typeof response.data.value, typeof cValue);
-    assert.equal(JSON.stringify(response.data.value), JSON.stringify(cValue));
+    assert.equal(typeof response.data.response, typeof cValue);
+    assert.equal(JSON.stringify(response.data.response), JSON.stringify(cValue));
   });
 
   it('should pass when value is complex object', async function() {
@@ -73,8 +73,8 @@ describe('Cache GetObject', function() {
       , responseSet = await openSTCache.setObject(cKey, cValue)
       , response = await openSTCache.getObject(cKey);
     assert.equal(response.isSuccess(), true);
-    assert.equal(typeof response.data.value, typeof cValue);
-    assert.equal(JSON.stringify(response.data.value), JSON.stringify(cValue));
+    assert.equal(typeof response.data.response, typeof cValue);
+    assert.equal(JSON.stringify(response.data.response), JSON.stringify(cValue));
   });
 
 });

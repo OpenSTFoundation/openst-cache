@@ -102,7 +102,7 @@ describe('Cache SetObject', function() {
       , cValue = {a: 'a'}
       , response = await openSTCache.setObject(cKey, cValue);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
   it('should pass when value is complex object', async function() {
@@ -110,7 +110,7 @@ describe('Cache SetObject', function() {
       , cValue = {a: 'a', b: [12,23], c: true, d: 1}
       , response = await openSTCache.setObject(cKey, cValue);
     assert.equal(response.isSuccess(), true);
-    assert.equal(response.data.value, true);
+    assert.equal(response.data.response, true);
   });
 
 });
