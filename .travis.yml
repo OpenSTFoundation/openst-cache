@@ -5,6 +5,7 @@ branches:
   only:
   - master
   - develop
+  - travis_ci
 notifications:
   email:
     recipients:
