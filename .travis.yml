@@ -5,11 +5,10 @@ branches:
   only:
   - master
   - develop
-  - travis_ci
 notifications:
   email:
     recipients:
-      - sunil@ost.com
+      - ci.report@ost.com
     on_success: always
     on_failure: always
 node_js:
@@ -39,5 +38,4 @@ script:
   - mocha test --exit
   - source test/env/redis.sh
   - mocha test --exit
-
 after_script:
