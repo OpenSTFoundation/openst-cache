@@ -7,7 +7,7 @@
 const rootPrefix = "."
   , version = require(rootPrefix + '/package.json').version
   , cache = require(rootPrefix + '/services/cache')
-  , OpenSTCacheKeys = require(rootPrefix + '/services/openst_keys');
+  , OpenSTCacheKeys = require(rootPrefix + '/services/openst_cache_keys');
 
 const OpenSTCacheManagement = function () {
   const oThis = this;

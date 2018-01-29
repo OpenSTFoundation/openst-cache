@@ -97,6 +97,13 @@ describe('Cache SetObject', function() {
     assert.equal(response.isSuccess(), false);
   });
 
+  it('should fail when value is Array', async function() {
+    var cKey = "cache-key-object"
+      , cValue = [12,23]
+      , response = await openSTCache.setObject(cKey, cValue);
+    assert.equal(response.isSuccess(), false);
+  });
+
   it('should pass when value is object', async function() {
     var cKey = "cache-key-object"
       , cValue = {a: 'a'}

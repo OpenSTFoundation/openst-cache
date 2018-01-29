@@ -10,7 +10,7 @@ const rootPrefix = ".."
 
 describe('Cache Get', function() {
 
-  it('should return promise', async function() {
+  it('should return promise', function() {
     var cKey = "cache-key"
       , response = openSTCache.get(cKey);
     assert.typeOf(response, 'Promise');
@@ -50,8 +50,8 @@ describe('Cache Get', function() {
     assert.equal(response.isSuccess(), false);
   });
 
-  it('should pass when value is not set', async function() {
-    var cKey = "cache-key-not-set"
+  it('should pass when value is not get', async function() {
+    var cKey = "cache-key-not-get"
       , response = await openSTCache.get(cKey);
     assert.equal(response.isSuccess(), true);
     assert.equal(response.data.response, null);

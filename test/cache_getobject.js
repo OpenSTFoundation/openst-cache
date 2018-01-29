@@ -58,7 +58,7 @@ describe('Cache GetObject', function() {
   });
 
   it('should pass when value is object', async function() {
-    var cKey = "cache-key-object-1"
+    var cKey = "cache-key-object"
       , cValue = {a: 'a'}
       , responseSet = await openSTCache.setObject(cKey, cValue)
       , response = await openSTCache.getObject(cKey);
@@ -68,8 +68,8 @@ describe('Cache GetObject', function() {
   });
 
   it('should pass when value is complex object', async function() {
-    var cKey = "cache-key-object-2"
-      , cValue = {a: 'a', b: [12,23], c: true, d: 1}
+    var cKey = "cache-key-object"
+      , cValue = {a: 'a', b: [12,23], c: true, d: 1, e: {f: "hi", g: 1}}
       , responseSet = await openSTCache.setObject(cKey, cValue)
       , response = await openSTCache.getObject(cKey);
     assert.equal(response.isSuccess(), true);
