@@ -5,8 +5,8 @@ OpenST-Cache
 [![Downloads per month](https://img.shields.io/npm/dm/@openstfoundation/openst-cache.svg?maxAge=3600)][npm]
 [![Gitter](https://img.shields.io/gitter/room/OpenSTFoundation/github.js.svg?maxAge=3600)][gitter]
 
-OpenST Cache is the central cache implementation for all OpenST products and can easily be plugged-in. 
-It contains three caching engines. Decision of which caching engine to use is governed by an ENV variable 
+OpenST Cache is the central cache implementation for all OpenST products and can easily be plugged-in.
+It contains three caching engines. The decision of which caching engine to use is governed by an ENV variable
 'OST_CACHING_ENGINE'. Caching engines implemented are:
 
 * Memcached
@@ -30,7 +30,7 @@ export OST_DEFAULT_TTL=3600 # In seconds
 ```bash
 export OST_REDIS_HOST='127.0.0.1'
 export OST_REDIS_PORT=6379
-export OST_REDIS_PASS=st123 # Redis authentication password defined as "requirepass" 
+export OST_REDIS_PASS=st123 # Redis authentication password defined as "requirepass"
 export OST_REDIS_TLS_ENABLED=0 # Possible values are 1 and 0
 ```
 ##### If OST_CACHING_ENGINE is memcached, then set following ENV variables:
@@ -82,7 +82,7 @@ cacheImplementer.getObject('testObjKey').then(function(cacheResponse){
 ```
 
 #### Retrieve multiple cache data using 'multiGet':
-###### * <b>NOTE: Don't retrieve Object values using multiGet. As Redis returns null value, even if a value is set in cache.</b>
+###### * <b>NOTE: Redis returns null value even if a value is set in cache, so Object values cannot be retrieved using multiGet. .</b>
 ```js
 cacheImplementer.set('testKeyOne', 'One').then(console.log);
 cacheImplementer.set('testKeyTwo', 'Two').then(console.log);
@@ -107,7 +107,7 @@ cacheImplementer.del('testKey').then(function(cacheResponse){
  });
 ```
 
-#### Manage counters in cache using 'increment' and 'decrement': 
+#### Manage counters in cache using 'increment' and 'decrement':
 ```js
 cacheImplementer.set('testCounterKey', 1).then(console.log);
 cacheImplementer.increment('testCounterKey', 10).then(function(cacheResponse){
