@@ -28,7 +28,7 @@
   "dependencies": {
     "memcached": "2.2.2",
     "redis": "2.8.0",
-    "@ostdotcom/base": "1.0.0"
+    "@ostdotcom/base": "1.0.1-beta.1"
   },
   "devDependencies": {
     "eslint": "6.5.1",
