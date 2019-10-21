@@ -13,11 +13,10 @@ notifications:
     on_success: always
     on_failure: always
 node_js:
-  - "9"
-  - "8"
-  - "7"
+  - "10"
 # Create a Travis memcached enabled environment
 services:
+  - "memcached"
 before_install:
   - sudo apt-get update
   - sudo apt-get install nodejs
@@ -42,4 +41,4 @@ script:
   - mocha test --exit
   - source test/env/redis.sh
   - mocha test --exit
-after_script:
+after_script: "skip"
