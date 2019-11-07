@@ -1,3 +1,7 @@
+## Cache v1.0.7
+- Upgraded node version to 10.x
+- Version bump for dependencies.
+
 ## Cache v1.0.6
 - Integrated with new Instance Composer.
 - Migrated to ES6.
